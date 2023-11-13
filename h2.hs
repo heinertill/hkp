@@ -19,7 +19,10 @@ dec2nat x = foldl (\acc x -> acc*10 + x) 0 x
 -- nummer 5
 
 cubicZ = [x*x*x | x <- [1..]]
--- primZ = [x | x <- [1..], y <- [2..x], ]
+
+prim p = and [mod p n > 0 | n <- 2: [3,5..p], n*n <= p]
+primZ = [p | p <- [2..], prim p]
+
 evenodd = [(x,y) | x <- [0,2..], y <- [1,3..]]
 
 -- nummer 6
