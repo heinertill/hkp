@@ -8,8 +8,9 @@ boolFold x = foldr (&&) True x
 
 -- nummer 3
 
-filter' b (x:[]) = [b x]
-filter' b (x:xs) = b x : filter' b xs
+-- filter' b (x:[]) = [b x]
+-- filter' b (x:xs) = b x : filter' b xs
+filter' p xs = foldr (\elem res -> if p elem then (elem:res) else res) [] xs
 
 -- nummer 4
 
