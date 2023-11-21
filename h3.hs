@@ -9,9 +9,13 @@ treeDepth (Node _ l r) = 1 + max (treeDepth l) (treeDepth r)
 inorder Emp = []
 inorder (Node elem l r) = inorder l ++ [elem] ++ inorder r
 
--- nummer 3 (unvollständig)
+-- nummer 3 
 bfs Emp = []
-bfs (Node elem l r) = elem : bfs l ++ bfs r
+bfs t = bfs' [t]
+
+bfs' [] = []
+bfs' (Emp:ts) = bfs' ts
+bfs' ((Node x l r):ts) = x : bfs' (ts ++ [l,r]) 
 
 -- nummer 4
 -- treemap f Emp = []
